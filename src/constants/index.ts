@@ -1,0 +1,172 @@
+import type { Email, Notification, BackgroundTheme, Integration } from "@/types";
+
+export const MOCK_USER = {
+  id: "usr_1789",
+  email: "irfan@iqmail.online",
+  name: "Dr. Irfan",
+  role: "user" as const,
+  verified: true,
+  twoFAEnabled: true,
+  biometricEnabled: false,
+  joinedAt: "2026-01-15",
+  lastSeen: new Date().toISOString(),
+  status: "active" as const,
+};
+
+export const ADMIN_SECRET_PASSWORD = "@1122#";
+
+export const MOTIVATIONAL_QUOTES = [
+  "🌟 Success is the sum of small efforts, repeated day in and day out.",
+  "💡 Intelligence is the ability to adapt to change. – Stephen Hawking",
+  "🚀 The best time to plant a tree was 20 years ago. The second best time is now.",
+  "⚡ Innovation distinguishes between a leader and a follower. – Steve Jobs",
+  "🌙 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ — In the name of Allah, the Most Gracious",
+  "🎯 Set your goals high, and don't stop till you get there. – Bo Jackson",
+  "🔥 Dream big, work hard, stay focused and surround yourself with good people.",
+];
+
+export const MARKETING_CTAS = [
+  "🔐 IQMAIL Pro — Ultimate Security for Your Digital Life | Upgrade Today",
+  "📧 Custom Domain Email Routing via iqmail.online | Get Started Free",
+  "🛡️ Multi-Factor Authentication + Biometric Login | Now Available",
+  "🌐 ESOneWorld Digital Solutions — Powering Your Enterprise Communication",
+  "⭐ New: Wildcard Subdomain Auto-Configuration | iqmail.online",
+  "🎁 Invite 3 friends and get 3 months IQMAIL Pro FREE!",
+];
+
+export const MOCK_EMAILS: Email[] = [
+  {
+    id: "em_001",
+    from: "noreply@iqmail.online",
+    fromName: "IQMAIL System",
+    to: "irfan@iqmail.online",
+    subject: "Welcome to IQMAIL – Your Core Social & Digital Partner",
+    body: `Assalamu Alaikum Dr. Irfan,\n\nWelcome to IQMAIL – the future of enterprise digital communication.\n\nYour account has been successfully created and verified. You now have access to:\n\n• Secure Multi-Factor Authentication\n• Custom Domain Email Routing\n• End-to-End Encrypted Messages\n• Real-time Notification Center\n• Advanced Analytics Dashboard\n\nJazakAllah Khairan for choosing IQMAIL.\n\nWarm regards,\nThe IQMAIL Team\nESOneWorld Digital Solutions`,
+    preview: "Welcome to IQMAIL – Your Core Social & Digital Partner...",
+    read: true,
+    starred: true,
+    folder: "inbox",
+    timestamp: new Date(Date.now() - 3600000).toISOString(),
+    tags: ["welcome", "system"],
+    attachments: [],
+  },
+  {
+    id: "em_002",
+    from: "security@iqmail.online",
+    fromName: "IQMAIL Security",
+    to: "irfan@iqmail.online",
+    subject: "🔐 New Login Detected – Verify Your Device",
+    body: "A new login was detected on your IQMAIL account from a new device. If this was you, no action needed. Otherwise, please secure your account immediately.",
+    preview: "A new login was detected from a new device...",
+    read: false,
+    starred: false,
+    folder: "inbox",
+    timestamp: new Date(Date.now() - 7200000).toISOString(),
+    tags: ["security", "alert"],
+  },
+  {
+    id: "em_003",
+    from: "updates@iqmail.online",
+    fromName: "IQMAIL Updates",
+    to: "irfan@iqmail.online",
+    subject: "🚀 New Feature: Biometric Authentication Now Available",
+    body: "We're excited to announce that Biometric Authentication (WebAuthn/Fingerprint) is now available on all IQMAIL accounts.",
+    preview: "Biometric Authentication is now available on all accounts...",
+    read: false,
+    starred: false,
+    folder: "inbox",
+    timestamp: new Date(Date.now() - 86400000).toISOString(),
+    tags: ["update", "feature"],
+  },
+  {
+    id: "em_004",
+    from: "billing@iqmail.online",
+    fromName: "IQMAIL Billing",
+    to: "irfan@iqmail.online",
+    subject: "Your IQMAIL Pro Invoice – September 2026",
+    body: "Thank you for your continued subscription. Your invoice for September 2026 is ready.",
+    preview: "Your invoice for September 2026 is ready...",
+    read: true,
+    starred: false,
+    folder: "inbox",
+    timestamp: new Date(Date.now() - 172800000).toISOString(),
+    tags: ["billing"],
+  },
+  {
+    id: "em_005",
+    from: "irfan@iqmail.online",
+    fromName: "Dr. Irfan",
+    to: "team@esonworld.com",
+    subject: "IQMAIL V2.0 Roadmap Discussion",
+    body: "Dear Team, Please find attached the roadmap for IQMAIL V2.0 development...",
+    preview: "Please find attached the roadmap for IQMAIL V2.0...",
+    read: true,
+    starred: true,
+    folder: "sent",
+    timestamp: new Date(Date.now() - 259200000).toISOString(),
+    tags: ["work"],
+  },
+  {
+    id: "em_006",
+    from: "irfan@iqmail.online",
+    fromName: "Dr. Irfan",
+    to: "partner@cloudflare.com",
+    subject: "Cloudflare DNS Integration Proposal",
+    body: "Hello, I wanted to discuss the wildcard subdomain configuration for our IQMAIL platform...",
+    preview: "Wildcard subdomain configuration proposal for IQMAIL...",
+    read: false,
+    starred: false,
+    folder: "drafts",
+    timestamp: new Date(Date.now() - 3600000 * 2).toISOString(),
+    tags: ["draft", "integration"],
+  },
+];
+
+export const MOCK_NOTIFICATIONS: Notification[] = [
+  {
+    id: "n_001",
+    title: "Security Alert",
+    message: "New device login detected from Karachi, PK",
+    type: "warning",
+    read: false,
+    timestamp: new Date(Date.now() - 1800000).toISOString(),
+  },
+  {
+    id: "n_002",
+    title: "Email Delivered",
+    message: "Your message to team@esonworld.com was delivered",
+    type: "success",
+    read: false,
+    timestamp: new Date(Date.now() - 3600000).toISOString(),
+  },
+  {
+    id: "n_003",
+    title: "2FA Enabled",
+    message: "Two-factor authentication is now active on your account",
+    type: "success",
+    read: true,
+    timestamp: new Date(Date.now() - 86400000).toISOString(),
+  },
+];
+
+export const BACKGROUND_THEMES: BackgroundTheme[] = [
+  { id: "bg_001", name: "Deep Navy", type: "animated", value: "stars", preview: "#0a0e1a" },
+  { id: "bg_002", name: "Electric Blue", type: "gradient", value: "linear-gradient(135deg, #0a0e1a, #001a33, #003366)", preview: "#003366" },
+  { id: "bg_003", name: "Purple Galaxy", type: "gradient", value: "linear-gradient(135deg, #0d0019, #1a0033, #330066)", preview: "#1a0033" },
+  { id: "bg_004", name: "Deep Green", type: "gradient", value: "linear-gradient(135deg, #001a0d, #003320, #004d30)", preview: "#003320" },
+  { id: "bg_005", name: "Crimson Dark", type: "gradient", value: "linear-gradient(135deg, #1a0000, #330000, #4d0000)", preview: "#330000" },
+  { id: "bg_006", name: "Milky White", type: "color", value: "#f8faff", preview: "#f8faff" },
+  { id: "bg_007", name: "Ocean Teal", type: "gradient", value: "linear-gradient(135deg, #001a1a, #003333, #004d4d)", preview: "#003333" },
+  { id: "bg_008", name: "Cosmic Gold", type: "gradient", value: "linear-gradient(135deg, #1a1000, #332200, #4d3300)", preview: "#332200" },
+];
+
+export const INTEGRATIONS: Integration[] = [
+  { id: "int_resend", name: "Resend", icon: "📧", status: "disconnected", description: "Transactional email API", color: "#ff6b35" },
+  { id: "int_cloudflare", name: "Cloudflare", icon: "☁️", status: "disconnected", description: "DNS & Email Routing", color: "#f48120" },
+  { id: "int_google", name: "Google", icon: "🔵", status: "disconnected", description: "OAuth & Workspace", color: "#4285f4" },
+  { id: "int_github", name: "GitHub", icon: "⚫", status: "disconnected", description: "Code & Deployments", color: "#333" },
+  { id: "int_whatsapp", name: "WhatsApp", icon: "💚", status: "disconnected", description: "Messaging Integration", color: "#25d366" },
+  { id: "int_youtube", name: "YouTube", icon: "🔴", status: "disconnected", description: "Video Broadcasting", color: "#ff0000" },
+  { id: "int_vercel", name: "Vercel", icon: "▲", status: "disconnected", description: "Deployment Platform", color: "#000" },
+  { id: "int_stripe", name: "Stripe", icon: "💳", status: "disconnected", description: "Payment Processing", color: "#635bff" },
+];
